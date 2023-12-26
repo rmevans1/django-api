@@ -23,7 +23,7 @@ services:
       - db
   
   db:
-    image: postgres:16.1-alpine
+    image: postgres:16.1-alpine3.19
     volumes:
       - dev-db-data:/var/ib/postgresql/data
     environment:
