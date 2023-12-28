@@ -1,17 +1,17 @@
 """
 Views for the recipe APIs.
 """
-from drf_spectacular.utils import (
-    extend_schema_view,
-    extend_schema,
-    OpenApiParameter,
-    OpenApiTypes,
-)
 from rest_framework import (
     viewsets,
     mixins,
     status,
 )
+# from drf_spectacular.utils import (
+# extend_schema_view,
+# extend_schema,
+# OpenApiParameter,
+# OpenApiTypes,
+# )
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
@@ -50,7 +50,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
         return queryset.filter(
             user=self.request.user
-        ).order_by('id').distinct()
+        ).order_by('-id').distinct()
     
     def get_serializer_class(self):
         """Return the serializer class for request."""
